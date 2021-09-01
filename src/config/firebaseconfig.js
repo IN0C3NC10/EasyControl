@@ -1,7 +1,7 @@
 import firebase from "firebase"
 import "firebase/storage"
 
-const firebaseConfig = {
+var firebaseConfig = {
     apiKey: "AIzaSyDVDkrbolTerjm1iDOItXj7ueOnPA7xGaw",
     authDomain: "reactnative-688b7.firebaseapp.com",
     projectId: "reactnative-688b7",
@@ -12,7 +12,7 @@ const firebaseConfig = {
   
   
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
 
   const database = firebase.firestore()
   export default database
