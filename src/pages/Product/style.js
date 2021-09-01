@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     },
     // ..background do botão de adição
     backgroundButton:{
-        position:"absolute",
+        position:"fixed",
         width:50,
         height:50,
         bottom:30,

@@ -35,6 +35,9 @@ export default function Product({navigation}) {
                                 onPress={()=>navigation.navigate("Details",{
                                     id: item.id,
                                     name: item.name,
+                                    price: item.price,
+                                    quantity: item.quantity,
+                                    status:item.status,
                                 })}> {item.name}</Text>
                             {/* <FontAwesome name="edit" size={23} color="#fa2e6a" /> */}
                         </TouchableOpacity>
