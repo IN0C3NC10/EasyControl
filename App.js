@@ -12,7 +12,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Product">
-          {/* ..Stack Screen é a c/ página */}
+          {/* ..Stack Screen é a c/ página
+            o "name" é o parametro que c/ tela vai chamar para realizar a navegação, semelhante a uma função */}
           <Stack.Screen name="Product" component={Products} options={{ headerTintColor:"#f92e6a" }} />
           <Stack.Screen name="New Product" component={NewProduct} options={{ headerTintColor:"#f92e6a" }} />
           <Stack.Screen name="Details" component={Details} options={{ headerTintColor:"#f92e6a" }} />

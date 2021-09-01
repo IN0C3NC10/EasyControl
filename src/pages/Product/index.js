@@ -8,9 +8,12 @@ export default function Product({navigation}) {
     
     const [product, setProduct]= useState([])
 
+    // ..FUNÇÃO REQUISITADA NO MOMENTO EM QUE O APP STARTA
     useEffect(() => {
+        // ..o nome da collection, é o que esta presente no banco
         database.collection("Products").onSnapshot((query)=>{
             const list = []
+            // ..realiza a inserção dos dados com um "for each" e os insere da constante "list"
             query.forEach((doc)=>{
                 list.push({...doc.data(), id:doc.id})
             })
@@ -20,8 +23,26 @@ export default function Product({navigation}) {
 
     return(
         <View style={styles.container}>
-            <FlatList />
-            <TouchableOpacity style={styles.backgroundButton}>
+            <FlatList
+                data={product}
+                renderItem={({item})=>{
+                    return(
+                    <View style={styles.listItens}>
+                        <TouchableOpacity style={styles.listItem}>
+                            {/* ..quando chamar a tela já envia os parâmetros, neste caso os atributos do item em específico */}
+                            <Text 
+                                style={styles.item}
+                                onPress={()=>navigation.navigate("Details",{
+                                    id: item.id,
+                                    name: item.name,
+                                })}> {item.name}</Text>
+                            {/* <FontAwesome name="edit" size={23} color="#fa2e6a" /> */}
+                        </TouchableOpacity>
+                    </View>
+                    )
+                }}
+            />
+            <TouchableOpacity style={styles.backgroundButton} onPress={()=>navigation.navigate("New Product")}>
                 <Text style={styles.iconButton}>+</Text>
             </TouchableOpacity>
         </View>

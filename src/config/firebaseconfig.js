@@ -1,6 +1,8 @@
 import firebase from "firebase"
 import "firebase/storage"
 
+// ..para o projeto em questão a const>var e o initialize foi feito direto ao firebase
+// ..configurações da base de dados obtidas nas configurações do database (Firestore)
 var firebaseConfig = {
     apiKey: "AIzaSyDVDkrbolTerjm1iDOItXj7ueOnPA7xGaw",
     authDomain: "reactnative-688b7.firebaseapp.com",
@@ -10,8 +12,7 @@ var firebaseConfig = {
     appId: "1:917486679648:web:3022ca074171f879bc3505"
   };
   
-  
-  // Initialize Firebase
+  // Inicialização do Firebase
   firebase.initializeApp(firebaseConfig);
 
   const database = firebase.firestore()
