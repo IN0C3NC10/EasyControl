@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, TouchableOpacity, Picker } from 'react-native';
 import styles from './style';
-import database from '../../../config/firebaseconfig'
+import firebase from '../../../config/firebaseconfig'
 
 export default function Details({navigation, route}) {
+    const database = firebase.firestore()
     // ..setando os parâmetros recebidos da lista, via rota
     const id = route.params.id
     const [name, setName] = useState(route.params.name)

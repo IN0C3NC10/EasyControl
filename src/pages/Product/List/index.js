@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {FontAwesome} from "@expo/vector-icons"
 import { Text, View, FlatList, TouchableOpacity  } from 'react-native';
-import database from '../../../config/firebaseconfig';
+import firebase from '../../../config/firebaseconfig';
 import styles from './style';
 
 export default function List({navigation}) {
     
     const [product, setProduct]= useState([])
+    const database = firebase.firestore()
 
     // ..FUNÇÃO REQUISITADA NO MOMENTO EM QUE O APP STARTA
     useEffect(() => {

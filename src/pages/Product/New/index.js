@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Text, TextInput, View, Picker, TouchableOpacity } from 'react-native';
 import styles from './style';
-import database from '../../../config/firebaseconfig'
+import firebase from '../../../config/firebaseconfig'
 
 export default function New({ navigation }) {
+    const database = firebase.firestore()
     // ..setando os parâmetros iniciais
     const [name, setName] = useState(null)
     const [price, setPrice] = useState(null)
