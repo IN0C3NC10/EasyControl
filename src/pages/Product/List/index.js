@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {FontAwesome} from "@expo/vector-icons"
 import { Text, View, FlatList, TouchableOpacity  } from 'react-native';
-import database from '../../config/firebaseconfig';
+import database from '../../../config/firebaseconfig';
 import styles from './style';
 
-export default function Product({navigation}) {
+export default function List({navigation}) {
     
     const [product, setProduct]= useState([])
 
@@ -32,7 +32,7 @@ export default function Product({navigation}) {
                             {/* ..quando chamar a tela já envia os parâmetros, neste caso os atributos do item em específico */}
                             <Text 
                                 style={styles.item}
-                                onPress={()=>navigation.navigate("Details",{
+                                onPress={()=>navigation.navigate("Details Product",{
                                     id: item.id,
                                     name: item.name,
                                     price: item.price,

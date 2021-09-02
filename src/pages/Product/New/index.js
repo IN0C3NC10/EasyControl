@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, TextInput, View, Picker, TouchableOpacity } from 'react-native';
 import styles from './style';
-import database from '../../config/firebaseconfig'
+import database from '../../../config/firebaseconfig'
 
 export default function New({ navigation }) {
     // ..setando os parâmetros iniciais
@@ -20,7 +20,7 @@ export default function New({ navigation }) {
             status: status,
         })
         // ..retorna para a página anterior, pós inserção
-        navigation.navigate("Product")
+        navigation.navigate("List Products")
     }
 
     return (

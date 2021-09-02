@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, TouchableOpacity, Picker } from 'react-native';
 import styles from './style';
-import database from '../../config/firebaseconfig'
+import database from '../../../config/firebaseconfig'
 
 export default function Details({navigation, route}) {
     // ..setando os parâmetros recebidos da lista, via rota
@@ -22,7 +22,7 @@ export default function Details({navigation, route}) {
             status: status,
         })
         // ..retorna para a página anterior, pós inserção
-        navigation.navigate("Product")
+        navigation.navigate("List Products")
     }
 
     // ..FUNÇÃO RESPONSÁVEL PELA EXCLUSÃO DO PRODUTO
@@ -31,7 +31,7 @@ export default function Details({navigation, route}) {
         // ..como é preciso do parametro "id" é necessário "entrar" no doc
         database.collection("Products").doc(id).delete()
         // ..retorna para a página anterior, pós inserção
-        navigation.navigate("Product")
+        navigation.navigate("List Products")
     }
 
     return(
