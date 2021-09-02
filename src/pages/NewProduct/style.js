@@ -49,12 +49,12 @@ const styles = StyleSheet.create({
     //..background do botão salvar
     saveFrame:{
         position:"absolute",
-        width:50,
+        width:"90%",
         height:50,
         bottom:30,
         left:20,
         backgroundColor: main,
-        borderRadius:50,
+        // borderRadius:50,
         justifyContent:"center",
         alignItems:"center",
     },

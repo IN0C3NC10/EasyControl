@@ -62,17 +62,35 @@ const styles = StyleSheet.create({
     //..background do botão salvar
     saveFrame: {
         position: "absolute",
-        width: 50,
+        width: "45%",
         height: 50,
         bottom: 30,
         left: 20,
         backgroundColor: main,
-        borderRadius: 50,
+        // borderRadius: 50,
         justifyContent: "center",
         alignItems: "center",
     },
     // ..texto do botão salvar
     saveButton: {
+        color: "white",
+        fontSize: 16,
+        fontWeight: "bold"
+    },
+    //..background do botão deletar
+    deleteFrame:{
+        position: "absolute",
+        width: "45%",
+        height: 50,
+        bottom: 30,
+        right: 20,
+        backgroundColor: "black",
+        // borderRadius: 50,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    // ..texto do botão deletar
+    deleteButton:{
         color: "white",
         fontSize: 16,
         fontWeight: "bold"

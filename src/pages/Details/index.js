@@ -11,6 +11,7 @@ export default function Details({navigation, route}) {
     const [quantity, setQuantity] = useState(route.params.quantity)
     const [status, setStatus] = useState(route.params.status)
 
+    // ..FUNÇÃO RESPONSÁVEL PELA EDIÇÃO DO PRODUTO 
     function editProduct(id,name,price,quantity,status) {
         // ..realiza a atualização dos dados, lembrando que a "colletion" tem que estar igual ao Database
         // ..como é preciso do parametro "id" é necessário "entrar" no doc
@@ -23,6 +24,16 @@ export default function Details({navigation, route}) {
         // ..retorna para a página anterior, pós inserção
         navigation.navigate("Product")
     }
+
+    // ..FUNÇÃO RESPONSÁVEL PELA EXCLUSÃO DO PRODUTO
+    function deleteProduct(id) {
+        // ..realiza a atualização dos dados, lembrando que a "colletion" tem que estar igual ao Database
+        // ..como é preciso do parametro "id" é necessário "entrar" no doc
+        database.collection("Products").doc(id).delete()
+        // ..retorna para a página anterior, pós inserção
+        navigation.navigate("Product")
+    }
+
     return(
         <View style={styles.container}>
             <View style={styles.form}>
@@ -41,6 +52,9 @@ export default function Details({navigation, route}) {
             </View>
             <TouchableOpacity onPress={() => { editProduct(id,name,price,quantity,status) }} style={styles.saveFrame}>
                 <Text style={styles.saveButton}>Save</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => { deleteProduct(id) }} style={styles.deleteFrame}>
+                <Text style={styles.deleteButton}>Delete</Text>
             </TouchableOpacity>
         </View>
     )

@@ -1,7 +1,8 @@
 import firebase from "firebase"
 import "firebase/storage"
 
-// ..para o projeto em questão a const>var e o initialize foi feito direto ao firebase
+// ..para o projeto em questão alterar "const>var" e o "initialize" foi feito direto ao firebase
+// ..não se esqueça de nas "Regras" do database, na linha 5, alterar o "false>true" [allow read, write: if tsrue;]
 // ..configurações da base de dados obtidas nas configurações do database (Firestore)
 var firebaseConfig = {
     apiKey: "AIzaSyDVDkrbolTerjm1iDOItXj7ueOnPA7xGaw",
