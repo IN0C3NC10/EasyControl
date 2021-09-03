@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 let main = "#fa2e6a";
 let sub = "#E8E8E8";
 let subdark = "#bdbdbd";
+let sucess = "#00b300";
 
 const styles = StyleSheet.create({
     
@@ -28,6 +29,17 @@ const styles = StyleSheet.create({
     textLogout:{
         color:"white",
         fontWeight:"bold",
+    },
+    // ..mensagem de retorno
+    frameMessage:{
+        padding:10,
+        backgroundColor:sucess,
+        justifyContent:"center",
+        flexDirection:"row",
+    },
+    textMessage:{
+        color:"white",
+        fontWeight:"bold"
     },
     // ..background do botão de adição
     backgroundButton:{

@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 // ..definição das cores principais e secundárias
 let main = "#fa2e6a";
 let sub = "#E8E8E8";
+let subdark = "#bdbdbd";
 
 const styles = StyleSheet.create({
     // ..fundo de toda estrutura
@@ -14,6 +15,19 @@ const styles = StyleSheet.create({
     // ..formulário
     form:{
         marginHorizontal:30,
+    },
+    // ..título, ou a barra superior
+    frameTitle:{
+        padding:20,
+        backgroundColor:main,
+        justifyContent:"space-between",
+        flexDirection:"row",
+        borderBottomWidth:2,
+        borderBottomColor:subdark,
+    },
+    textTitle:{
+        color:"white",
+        fontWeight:"bold"
     },
     // ..labels
     label:{
@@ -38,6 +52,7 @@ const styles = StyleSheet.create({
         borderBottomWidth:1,
         borderBottomColor: main,
     },
+    // ..combo box
     comboBox:{
         height: 30,
         width: "90%",
@@ -46,13 +61,35 @@ const styles = StyleSheet.create({
         marginLeft:"auto",
         borderBottomWidth:1,
     },
+    // ..texto caso esteja invalido
+    invalid:{
+        width:"90%",
+        marginTop:15,
+        justifyContent:"center",
+        // ..ambas centralizam o componente
+        marginRight:"auto",
+        marginLeft:"auto",
+        fontSize:14,
+        color: "#404040",
+    },
+    invalid1:{
+        width:"90%",
+        marginTop:15,
+        justifyContent:"center",
+        // ..ambas centralizam o componente
+        marginRight:"auto",
+        marginLeft:"auto",
+        fontSize:14,
+        color: "red",
+    },
     //..background do botão salvar
     saveFrame:{
         position:"absolute",
         width:"90%",
         height:50,
         bottom:30,
-        left:20,
+        left:"5%",
+        right:"5%",
         backgroundColor: main,
         // borderRadius:50,
         justifyContent:"center",

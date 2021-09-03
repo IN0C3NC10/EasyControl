@@ -7,6 +7,7 @@ import styles from './style';
 export default function List({ navigation, route }) {
     // ..recupera o idUser via rota e o atribui para uma constante
     const idUser = route.params.idUser
+    const message = route.params.message
     const [product, setProduct] = useState([])
     const database = firebase.firestore()
 
@@ -48,6 +49,14 @@ export default function List({ navigation, route }) {
                     Logout <FontAwesome name="sign-out" size={18} color="white" />
                 </Text>
             </View>
+            {message != null
+            ?
+            <View style={styles.frameMessage}>
+                <Text style={styles.textMessage}>{message}</Text>
+            </View>
+            :
+                <View />
+            }
             <FlatList
                 data={product}
                 renderItem={({ item }) => {

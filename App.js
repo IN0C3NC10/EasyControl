@@ -21,8 +21,8 @@ export default function App() {
           <Stack.Screen name="Login" component={Login} options={{ headerShown:false }} />
           <Stack.Screen name="New User" component={NewUser} options={{ headerShown:false }} />
           <Stack.Screen name="List Products" component={ListProduct} options={{ headerShown:false, headerLeft:false }} />
-          <Stack.Screen name="New Product" component={NewProduct} options={{ headerTintColor:"#f92e6a" }} />
-          <Stack.Screen name="Details Product" component={DetailsProduct} options={{ headerTintColor:"#f92e6a" }} />
+          <Stack.Screen name="New Product" component={NewProduct} options={{ headerShown:false }} />
+          <Stack.Screen name="Details Product" component={DetailsProduct} options={{ headerShown:false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
