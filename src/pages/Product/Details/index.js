@@ -5,6 +5,7 @@ import firebase from '../../../config/firebaseconfig'
 
 export default function Details({navigation, route}) {
     const database = firebase.firestore()
+    const idUser = route.params.idUser
     // ..setando os parâmetros recebidos da lista, via rota
     const id = route.params.id
     const [name, setName] = useState(route.params.name)
@@ -19,14 +20,14 @@ export default function Details({navigation, route}) {
         // ..realiza a atualização dos dados, lembrando que a "colletion" tem que estar igual ao Database
         // ..neste caso a atribuição é via a "sessão" do usuario
         // ..como é preciso do parametro "id" é necessário "entrar" no doc
-        database.collection(route.params.idUser).doc(id).update({
+        database.collection(idUser).doc(id).update({
             name: name,
             price: price,
             quantity: quantity,
             status: status,
         })
         // ..retorna para a página anterior, pós inserção
-        navigation.navigate("List Products",{idUser:route.params.idUser,})
+        navigation.navigate("List Products",{idUser:idUser,})
     }
 
     /*  -------------------------------------------------------------------------------------------------------
@@ -35,7 +36,7 @@ export default function Details({navigation, route}) {
     function deleteProduct(id) {
         // ..realiza a atualização dos dados, lembrando que a "colletion" tem que estar igual ao Database
         // ..como é preciso do parametro "id" é necessário "entrar" no doc
-        database.collection(route.params.idUser).doc(id).delete()
+        database.collection(idUser).doc(id).delete()
         // ..retorna para a página anterior, pós inserção
         navigation.navigate("List Products")
     }

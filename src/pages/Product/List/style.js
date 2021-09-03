@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 // ..definição das cores principais e secundárias
 let main = "#fa2e6a";
 let sub = "#E8E8E8";
+let subdark = "#bdbdbd";
 
 const styles = StyleSheet.create({
     
@@ -9,7 +10,24 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         backgroundColor:"white",
-        paddingTop:20,
+        // paddingTop:20,
+    },
+    // ..título, ou a barra superior
+    frameTitle:{
+        padding:20,
+        backgroundColor:main,
+        justifyContent:"space-between",
+        flexDirection:"row",
+        borderBottomWidth:2,
+        borderBottomColor:subdark,
+    },
+    textTitle:{
+        color:"white",
+        fontWeight:"bold"
+    },
+    textLogout:{
+        color:"white",
+        fontWeight:"bold",
     },
     // ..background do botão de adição
     backgroundButton:{
