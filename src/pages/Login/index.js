@@ -5,33 +5,31 @@ import styles from './style';
 import firebase from '../../config/firebaseconfig'
 
 export default function Login({ navigation }) {
-    const database = firebase.firestore()
+    // const database = firebase.firestore()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
 
     // ..FUNÇÃO RESPONSÁVEL PELO LOGIN VIA SENHA E EMAIL
-    const loginFirebase = () => {
+    const login = () => {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 let user = userCredential.user;
                 navigation.navigate("List Products", {
                     idUser:user.uid,
                 })
+                // ..após o login a mensagem de erro e a senha são resetadas
+                setError(false)
+                setPassword("")
             })
             .catch((error) => {
                 setError(true)
-                let errorCode = error.code;
-                let errorMessage = error.message;
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log("Código de erro:"+errorCode+"\nMotivo:"+errorMessage)
+                setPassword("")
             });
     }
-
-    useEffect(() => {
-
-        return () => {
-
-        };
-    }, []);
 
     return (
         <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : "height"}>
@@ -40,6 +38,7 @@ export default function Login({ navigation }) {
             <TextInput value={password} onChangeText={(text) => setPassword(text)} secureTextEntry={true} style={styles.input} placeholder="Enter your password" type="Password" />
             {error === true
                 ?
+                // ..caso tenha algum erro
                 <View style={styles.alert}>
                     <MaterialCommunityIcons name="alert-circle" size={24} color="red" />
                     <Text style={styles.alertText}>Invalid e-mail or password</Text>
@@ -49,17 +48,18 @@ export default function Login({ navigation }) {
             }
             {email == "" || password == ""
                 ?
+                // ..senha ou email vazios, ele exibe um botão desabilitado
                 <TouchableOpacity style={styles.buttonLogin} disabled={true}>
                     <Text style={styles.textLogin}>Login</Text>
                 </TouchableOpacity>
                 :
-                <TouchableOpacity onPress={loginFirebase} style={styles.buttonLogin}>
+                <TouchableOpacity onPress={login} style={styles.buttonLogin}>
                     <Text style={styles.textLogin}>Login</Text>
                 </TouchableOpacity>
             }
             <Text style={styles.message}>
-                Don't have a registration?
-                <Text onPress={() => navigation.navigate("New User")} style={styles.registration}> Subscribe now!</Text>
+                Don't have account?
+                <Text onPress={() => navigation.navigate("New User")} style={styles.registration}> Sign up!</Text>
             </Text>
             <View style={{ height: 100 }} />
         </KeyboardAvoidingView>
