@@ -15,22 +15,23 @@ export default function Details({navigation, route}) {
     // ..FUNÇÃO RESPONSÁVEL PELA EDIÇÃO DO PRODUTO 
     function editProduct(id,name,price,quantity,status) {
         // ..realiza a atualização dos dados, lembrando que a "colletion" tem que estar igual ao Database
+        // ..neste caso a atribuição é via a "sessão" do usuario
         // ..como é preciso do parametro "id" é necessário "entrar" no doc
-        database.collection("Products").doc(id).update({
+        database.collection(route.params.idUser).doc(id).update({
             name: name,
             price: price,
             quantity: quantity,
             status: status,
         })
         // ..retorna para a página anterior, pós inserção
-        navigation.navigate("List Products")
+        navigation.navigate("List Products",{idUser:route.params.idUser,})
     }
 
     // ..FUNÇÃO RESPONSÁVEL PELA EXCLUSÃO DO PRODUTO
     function deleteProduct(id) {
         // ..realiza a atualização dos dados, lembrando que a "colletion" tem que estar igual ao Database
         // ..como é preciso do parametro "id" é necessário "entrar" no doc
-        database.collection("Products").doc(id).delete()
+        database.collection(route.params.idUser).doc(id).delete()
         // ..retorna para a página anterior, pós inserção
         navigation.navigate("List Products")
     }

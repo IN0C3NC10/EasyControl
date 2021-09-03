@@ -4,7 +4,7 @@ import { Text, View, FlatList, TouchableOpacity  } from 'react-native';
 import firebase from '../../../config/firebaseconfig';
 import styles from './style';
 
-export default function List({navigation}) {
+export default function List({navigation, route}) {
     
     const [product, setProduct]= useState([])
     const database = firebase.firestore()
@@ -12,7 +12,7 @@ export default function List({navigation}) {
     // ..FUNÇÃO REQUISITADA NO MOMENTO EM QUE O APP STARTA
     useEffect(() => {
         // ..o nome da collection, é o que esta presente no banco
-        database.collection("Products").onSnapshot((query)=>{
+        database.collection(route.params.idUser).onSnapshot((query)=>{
             const list = []
             // ..realiza a inserção dos dados com um "for each" e os insere da constante "list"
             query.forEach((doc)=>{
@@ -34,6 +34,8 @@ export default function List({navigation}) {
                             <Text 
                                 style={styles.item}
                                 onPress={()=>navigation.navigate("Details Product",{
+                                    //.. envia o "idUser", junto aos parametros do item
+                                    idUser:route.params.idUser,
                                     id: item.id,
                                     name: item.name,
                                     price: item.price,
@@ -46,7 +48,7 @@ export default function List({navigation}) {
                     )
                 }}
             />
-            <TouchableOpacity style={styles.backgroundButton} onPress={()=>navigation.navigate("New Product")}>
+            <TouchableOpacity style={styles.backgroundButton} onPress={()=>navigation.navigate("New Product",{ idUser:route.params.idUser, })}>
                 <Text style={styles.iconButton}>+</Text>
             </TouchableOpacity>
         </View>

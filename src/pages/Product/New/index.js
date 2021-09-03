@@ -3,7 +3,7 @@ import { Text, TextInput, View, Picker, TouchableOpacity } from 'react-native';
 import styles from './style';
 import firebase from '../../../config/firebaseconfig'
 
-export default function New({ navigation }) {
+export default function New({ navigation, route }) {
     const database = firebase.firestore()
     // ..setando os parâmetros iniciais
     const [name, setName] = useState(null)
@@ -14,14 +14,14 @@ export default function New({ navigation }) {
     // ..FUNÇÃO QUE INSERE OS DADOS
     function addProduct() {
         // ..realiza a persistencia dos dados, lembrando que a "colletion" tem que estar igual ao Database
-        database.collection("Products").add({
+        database.collection(route.params.idUser).add({
             name: name,
             price: price,
             quantity: quantity,
             status: status,
         })
         // ..retorna para a página anterior, pós inserção
-        navigation.navigate("List Products")
+        navigation.navigate("List Products",{idUser:route.params.idUser,})
     }
 
     return (

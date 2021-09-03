@@ -16,6 +16,7 @@ export default function Login({ navigation }) {
             .then((userCredential) => {
                 let user = userCredential.user;
                 navigation.navigate("List Products", {
+                    //.. envia o "idUser", que se assemelha a ideia de sessão
                     idUser:user.uid,
                 })
                 // ..após o login a mensagem de erro e a senha são resetadas
