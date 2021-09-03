@@ -11,7 +11,9 @@ export default function New({navigation}) {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
 
-    // ..FUNÇÃO RESPONSÁVEL PELO CRIAÇÃO DE USUÁRIO VIA SENHA E EMAIL
+    /*  -------------------------------------------------------------------------------------------------------
+        ..FUNÇÃO RESPONSÁVEL PELO CRIAÇÃO DE USUÁRIO VIA SENHA E EMAIL
+        -------------------------------------------------------------------------------------------------------*/
     const register = () => {
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {

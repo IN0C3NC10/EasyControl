@@ -11,7 +11,9 @@ export default function New({ navigation, route }) {
     const [quantity, setQuantity] = useState(null)
     const [status, setStatus] = useState("Ativo")
 
-    // ..FUNÇÃO QUE INSERE OS DADOS
+    /*  -------------------------------------------------------------------------------------------------------
+        ..FUNÇÃO QUE INSERE OS DADOS
+        -------------------------------------------------------------------------------------------------------*/
     function addProduct() {
         // ..realiza a persistencia dos dados, lembrando que a "colletion" tem que estar igual ao Database
         database.collection(route.params.idUser).add({

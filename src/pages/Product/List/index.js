@@ -9,7 +9,9 @@ export default function List({navigation, route}) {
     const [product, setProduct]= useState([])
     const database = firebase.firestore()
 
-    // ..FUNÇÃO REQUISITADA NO MOMENTO EM QUE O APP STARTA
+    /*  -------------------------------------------------------------------------------------------------------
+        ..FUNÇÃO REQUISITADA NO MOMENTO EM QUE A TELA STARTA
+        -------------------------------------------------------------------------------------------------------*/
     useEffect(() => {
         // ..o nome da collection, é o que esta presente no banco
         database.collection(route.params.idUser).onSnapshot((query)=>{

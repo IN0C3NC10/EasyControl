@@ -10,7 +10,9 @@ export default function Login({ navigation }) {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
 
-    // ..FUNÇÃO RESPONSÁVEL PELO LOGIN VIA SENHA E EMAIL
+    /*  -------------------------------------------------------------------------------------------------------
+        ..FUNÇÃO RESPONSÁVEL PELO LOGIN VIA SENHA E EMAIL
+        -------------------------------------------------------------------------------------------------------*/
     const login = () => {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
@@ -31,6 +33,18 @@ export default function Login({ navigation }) {
                 setPassword("")
             });
     }
+
+    /*  -------------------------------------------------------------------------------------------------------
+        ..FUNÇÃO RESPONSÁVEL PELO STATUS INICIAL DO APP
+        -------------------------------------------------------------------------------------------------------*/
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+              // User estiver conectado
+              navigation.navigate("List Products", {idUser : user.uid})
+            } 
+          });
+    }, []);
 
     return (
         <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : "height"}>

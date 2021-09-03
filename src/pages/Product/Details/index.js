@@ -12,7 +12,9 @@ export default function Details({navigation, route}) {
     const [quantity, setQuantity] = useState(route.params.quantity)
     const [status, setStatus] = useState(route.params.status)
 
-    // ..FUNÇÃO RESPONSÁVEL PELA EDIÇÃO DO PRODUTO 
+    /*  -------------------------------------------------------------------------------------------------------
+        ..FUNÇÃO RESPONSÁVEL PELA EDIÇÃO DO PRODUTO 
+        -------------------------------------------------------------------------------------------------------*/
     function editProduct(id,name,price,quantity,status) {
         // ..realiza a atualização dos dados, lembrando que a "colletion" tem que estar igual ao Database
         // ..neste caso a atribuição é via a "sessão" do usuario
@@ -27,7 +29,9 @@ export default function Details({navigation, route}) {
         navigation.navigate("List Products",{idUser:route.params.idUser,})
     }
 
-    // ..FUNÇÃO RESPONSÁVEL PELA EXCLUSÃO DO PRODUTO
+    /*  -------------------------------------------------------------------------------------------------------
+        ..FUNÇÃO RESPONSÁVEL PELA EXCLUSÃO DO PRODUTO
+        -------------------------------------------------------------------------------------------------------*/
     function deleteProduct(id) {
         // ..realiza a atualização dos dados, lembrando que a "colletion" tem que estar igual ao Database
         // ..como é preciso do parametro "id" é necessário "entrar" no doc
