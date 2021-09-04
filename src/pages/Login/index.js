@@ -22,11 +22,11 @@ export default function Login({ navigation }) {
                     idUser:user.uid,
                 })
                 // ..após o login a mensagem de erro e a senha são resetadas
-                setError(false)
+                setError("")
                 setPassword("")
             })
             .catch((error) => {
-                setError(true)
+                setError("Email ou senha inválidos!")
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log("Código de erro:"+errorCode+"\nMotivo:"+errorMessage)
@@ -49,14 +49,14 @@ export default function Login({ navigation }) {
     return (
         <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : "height"}>
             <Text style={styles.title}>Easy<Text style={styles.titlePart}>Control</Text></Text>
-            <TextInput value={email} onChangeText={(text) => setEmail(text)} style={styles.input} placeholder="Enter your e-mail" type="Text" />
-            <TextInput value={password} onChangeText={(text) => setPassword(text)} secureTextEntry={true} style={styles.input} placeholder="Enter your password" type="Password" />
-            {error === true
+            <TextInput value={email} onChangeText={(text) => setEmail(text)} style={styles.input} placeholder="Ex. alextromboghosi@email.com" type="Text" />
+            <TextInput value={password} onChangeText={(text) => setPassword(text)} secureTextEntry={true} style={styles.input} placeholder="Insira sua senha.." type="Password" />
+            {error != ""
                 ?
                 // ..caso tenha algum erro
                 <View style={styles.alert}>
                     <MaterialCommunityIcons name="alert-circle" size={24} color="red" />
-                    <Text style={styles.alertText}>Invalid e-mail or password</Text>
+                    <Text style={styles.alertText}>{error}</Text>
                 </View>
                 :
                 <View />
@@ -65,16 +65,16 @@ export default function Login({ navigation }) {
                 ?
                 // ..senha ou email vazios, ele exibe um botão desabilitado
                 <TouchableOpacity style={styles.buttonLogin} disabled={true}>
-                    <Text style={styles.textLogin}>Login</Text>
+                    <Text style={styles.textLogin}>Entrar</Text>
                 </TouchableOpacity>
                 :
                 <TouchableOpacity onPress={login} style={styles.buttonLogin}>
-                    <Text style={styles.textLogin}>Login</Text>
+                    <Text style={styles.textLogin}>Entrar</Text>
                 </TouchableOpacity>
             }
             <Text style={styles.message}>
-                Don't have account?
-                <Text onPress={() => navigation.navigate("New User")} style={styles.registration}> Sign up!</Text>
+                Não tem uma conta?
+                <Text onPress={() => navigation.navigate("New User")} style={styles.registration}> Cadastre-se agora!</Text>
             </Text>
             <View style={{ height: 100 }} />
         </KeyboardAvoidingView>
