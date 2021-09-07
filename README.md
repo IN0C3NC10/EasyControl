@@ -43,7 +43,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [x] Login do Usuário;
 - [x] Logout do Usuário;
 - [x] Cadastro de Usuário;
-  Pertencentes ao Usuário logado:
 - [x] Listagem dos Produtos;
 - [x] Cadastro do Produto;
 - [x] Alteração do Produto;
