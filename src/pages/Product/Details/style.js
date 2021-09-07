@@ -1,16 +1,15 @@
 import { StyleSheet } from "react-native";
 
 // ..definição das cores principais e secundárias
-let main = "#fa2e6a";
-let sub = "#E8E8E8";
-let subdark = "#bdbdbd";
+let main = "#3F84E0";
+let sub = "black";
+let third = "#bdbdbd";
 
 const styles = StyleSheet.create({
     // ..fundo de toda estrutura
     container: {
         flex: 1,
         backgroundColor: "white",
-        // alignItems:"center",
     },
     // ..formulário
     form: {
@@ -23,7 +22,7 @@ const styles = StyleSheet.create({
         justifyContent:"space-between",
         flexDirection:"row",
         borderBottomWidth:2,
-        borderBottomColor:subdark,
+        borderBottomColor:sub,
     },
     textTitle:{
         color:"white",
@@ -51,7 +50,7 @@ const styles = StyleSheet.create({
         marginRight: "auto",
         marginLeft: "auto",
         fontSize: 16,
-        color: main,
+        color: sub,
     },
     // ..inputs
     input: {
@@ -59,11 +58,9 @@ const styles = StyleSheet.create({
         // ..ambas centralizam o componente
         marginRight: "auto",
         marginLeft: "auto",
-        // height:50,
-        // marginBottom:15,
         padding: 10,
         borderBottomWidth: 1,
-        borderBottomColor: main,
+        borderBottomColor: third,
     },
     comboBox: {
         height: 30,
@@ -82,30 +79,9 @@ const styles = StyleSheet.create({
     },
     alertText:{
         paddingLeft:10,
-        color:subdark,
+        color:sub,
         fontSize:16,
     },
-    // ..texto caso esteja invalido
-    // invalid:{
-    //     width:"90%",
-    //     marginTop:15,
-    //     justifyContent:"center",
-    //     // ..ambas centralizam o componente
-    //     marginRight:"auto",
-    //     marginLeft:"auto",
-    //     fontSize:14,
-    //     color: "#404040",
-    // },
-    // invalid1:{
-    //     width:"90%",
-    //     marginTop:15,
-    //     justifyContent:"center",
-    //     // ..ambas centralizam o componente
-    //     marginRight:"auto",
-    //     marginLeft:"auto",
-    //     fontSize:14,
-    //     color: "red",
-    // },
     //..background do botão salvar
     saveFrame: {
         position: "absolute",
@@ -132,7 +108,6 @@ const styles = StyleSheet.create({
         bottom: 30,
         right: 20,
         backgroundColor: "black",
-        // borderRadius: 50,
         justifyContent: "center",
         alignItems: "center",
     },

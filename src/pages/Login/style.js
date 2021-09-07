@@ -1,10 +1,9 @@
 import { Platform, StyleSheet } from "react-native";
 
 // ..definição das cores principais e secundárias
-// ..vermelho
-let main = "#fa2e6a";
-// ..gray
-let sub = "#bdbdbd";
+let main = "#3F84E0";
+let sub = "black";
+let third = "#bdbdbd";
 
 const styles = StyleSheet.create({
     // ..fundo de toda estrutura
@@ -33,7 +32,7 @@ const styles = StyleSheet.create({
         // height:50,
         padding:10,
         borderBottomWidth:1,
-        borderBottomColor:sub,
+        borderBottomColor:third,
     },
     // ..mensagem de erro
     alert:{

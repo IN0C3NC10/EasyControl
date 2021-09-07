@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
 // ..definição das cores principais e secundárias
-let main = "#fa2e6a";
-let sub = "#E8E8E8";
-let subdark = "#bdbdbd";
+let main = "#3F84E0";
+let sub = "black";
+let third = "#bdbdbd";
 let sucess = "#00b300";
 
 const styles = StyleSheet.create({
@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         backgroundColor:"white",
-        // paddingTop:20,
     },
     // ..título, ou a barra superior
     frameTitle:{
@@ -20,7 +19,7 @@ const styles = StyleSheet.create({
         justifyContent:"space-between",
         flexDirection:"row",
         borderBottomWidth:2,
-        borderBottomColor:subdark,
+        borderBottomColor:sub,
     },
     textTitle:{
         color:"white",
@@ -64,13 +63,11 @@ const styles = StyleSheet.create({
         width:"100%",
         flexDirection:"row",
         marginTop:5,
-        backgroundColor: sub,
+        // backgroundColor: third,
+        borderBottomWidth:1,
+        borderColor:third,
         justifyContent:"center",
     },
-    // ..item da lista (individual)
-    // listItem:{
-    //     justifyContent:"space-between",
-    // },
     // ..texto do item
     item:{
         // backgroundColor:main,

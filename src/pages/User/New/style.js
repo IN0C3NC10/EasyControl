@@ -1,10 +1,9 @@
 import { StyleSheet } from "react-native";
 
 // ..definição das cores principais e secundárias
-// ..vermelho
-let main = "#fa2e6a";
-// ..gray
-let sub = "#bdbdbd";
+let main = "#3F84E0";
+let sub = "black";
+let third = "#bdbdbd";
 
 const styles = StyleSheet.create({
     // ..fundo de toda estrutura
@@ -18,22 +17,18 @@ const styles = StyleSheet.create({
     },
     title:{
         fontSize:30,
-        color:sub,
+        color:main,
         marginBottom:10,
         fontWeight:"bold",
-    },
-    titlePart:{
-        color:main,
     },
     input:{
         width:"80%",
         // ..ambas centralizam o componente
         marginRight:"auto",
         marginLeft:"auto",
-        // height:50,
         padding:10,
         borderBottomWidth:1,
-        borderBottomColor:sub,
+        borderBottomColor:third,
     },
     // ..mensagem de erro
     alert:{
