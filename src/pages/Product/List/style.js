@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 let main = "#3F84E0";
 let sub = "black";
 let third = "#bdbdbd";
-let sucess = "#00b300";
+let success = "#8ADB89";
 
 const styles = StyleSheet.create({
     
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     // ..mensagem de retorno
     frameMessage:{
         padding:10,
-        backgroundColor:sucess,
+        backgroundColor:success,
         justifyContent:"center",
         flexDirection:"row",
     },
@@ -70,7 +70,6 @@ const styles = StyleSheet.create({
     },
     // ..texto do item
     item:{
-        // backgroundColor:main,
         padding:12,
         paddingHorizontal:1000,
         marginBottom:5,
