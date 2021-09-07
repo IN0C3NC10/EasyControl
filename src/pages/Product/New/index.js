@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, TextInput, View, Picker, TouchableOpacity } from 'react-native';
-import { FontAwesome } from "@expo/vector-icons"
+import { FontAwesome } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import styles from './style';
 import firebase from '../../../config/firebaseconfig'
 
@@ -12,18 +13,18 @@ export default function New({ navigation, route }) {
     const [price, setPrice] = useState("")
     const [quantity, setQuantity] = useState("")
     const [status, setStatus] = useState("Ativo")
-    const [invalid, setInvalid] = useState("")
+    const [error, setError] = useState("")
 
     /*  -------------------------------------------------------------------------------------------------------
         ..Função que valida os dados
         -------------------------------------------------------------------------------------------------------*/
     function check() {
         if (name == "" || price == "" || quantity == "") {
-            setInvalid("algum está vazio!")
+            setError("Campos vazios!")
         } else if (isNaN(quantity)) {
-            setInvalid("*Quantidade, não é um número inteiro!")
+            setError("[Quantidade] não é um número inteiro!")
         } else if (name.length < 4) {
-            setInvalid("*Nome está muito curto!")
+            setError("[Nome] está muito curto!")
         } else {
             return true
         }
@@ -36,8 +37,8 @@ export default function New({ navigation, route }) {
         // ..verifica se deu bom em tudo
         if (check()) {
             // ..seta a mensagem de erro vazia
-            setInvalid("")
-            let message = "Cadastro do "+name+" realizado com sucesso!"
+            setError("")
+            let message = "Cadastro do " + name + " realizado com sucesso!"
             let priceFormated = price.replace(",", ".")
             // ..realiza a persistencia dos dados, lembrando que a "colletion" tem que estar igual ao Database
             database.collection(idUser).add({
@@ -47,7 +48,7 @@ export default function New({ navigation, route }) {
                 status: status,
             })
             // ..retorna para a página anterior, pós inserção
-            navigation.navigate("List Products", { idUser: idUser, message:message })
+            navigation.navigate("List Products", { idUser: idUser, message: message })
         }
     }
 
@@ -59,26 +60,29 @@ export default function New({ navigation, route }) {
                 </Text>
             </View>
             <View style={styles.form}>
-                <Text style={styles.label}>Name</Text>
+                <Text style={styles.label}>Nome</Text>
                 <TextInput value={name} onChangeText={setName} style={styles.input} placeholder="Ex. Alex Tromboghosy" />
-                <Text style={styles.label}>Price</Text>
+                <Text style={styles.label}>Preço (R$)</Text>
                 <TextInput value={price} onChangeText={setPrice} style={styles.input} placeholder="Ex. 14.56" />
-                <Text style={styles.label}>Quantity</Text>
+                <Text style={styles.label}>Estoque (Uni.)</Text>
                 <TextInput value={quantity} onChangeText={setQuantity} style={styles.input} placeholder="Ex. 5" />
                 <Text style={styles.label}>Status</Text>
                 <Picker selectedValue={status} style={styles.comboBox} onValueChange={(itemValue) => setStatus(itemValue)}>
                     <Picker.Item label="Ativo" value="true" />
                     <Picker.Item label="Inativo" value="false" />
                 </Picker>
-                {invalid != ""
+                {error != ""
                     ?
-                    <Text style={styles.invalid}>Verifique os campos: <Text style={styles.invalid1}>{invalid}</Text></Text>
+                    <View style={styles.alertFrame}> 
+                        <MaterialCommunityIcons name="alert-circle" size={24} color="red" />
+                        <Text style={styles.alertText}>{error}</Text>
+                    </View>
                     :
                     <Text />
                 }
             </View>
             <TouchableOpacity onPress={() => { addProduct() }} style={styles.saveFrame}>
-                <Text style={styles.saveButton}>Save</Text>
+                <Text style={styles.saveButton}>Cadastrar</Text>
             </TouchableOpacity>
         </View>
     )

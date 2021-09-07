@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, TouchableOpacity, Picker } from 'react-native';
-import { FontAwesome } from "@expo/vector-icons"
+import { FontAwesome } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import styles from './style';
 import firebase from '../../../config/firebaseconfig'
 
@@ -13,18 +14,18 @@ export default function Details({ navigation, route }) {
     const [price, setPrice] = useState(route.params.price)
     const [quantity, setQuantity] = useState(route.params.quantity)
     const [status, setStatus] = useState(route.params.status)
-    const [invalid, setInvalid] = useState("")
+    const [error, setError] = useState("")
 
     /*  -------------------------------------------------------------------------------------------------------
         ..Função que valida os dados
         -------------------------------------------------------------------------------------------------------*/
     function check() {
         if (name == "" || price == "" || quantity == "") {
-            setInvalid("algum está vazio!")
+            setError("Campos vazios!")
         } else if (isNaN(quantity)) {
-            setInvalid("*Quantidade, não é um número inteiro!")
+            setError("[Quantidade] não é um número inteiro!")
         } else if (name.length < 4) {
-            setInvalid("*Nome está muito curto!")
+            setError("[Nome] está muito curto!")
         } else {
             return true
         }
@@ -37,7 +38,7 @@ export default function Details({ navigation, route }) {
         // ..verifica se deu bom em tudo
         if (check()) {
             // ..seta a mensagem de erro vazia
-            setInvalid("")
+            setError("")
             let message = name + " editado com sucesso!"
             let priceFormated = price.replace(",", ".")
             // ..realiza a atualização dos dados, lembrando que a "colletion" tem que estar igual ao Database
@@ -75,29 +76,32 @@ export default function Details({ navigation, route }) {
             </View>
             <View style={styles.form}>
                 <View style={styles.title}><Text style={styles.titleText}>{name}</Text></View>
-                <Text style={styles.label}>Name</Text>
+                <Text style={styles.label}>Nome</Text>
                 <TextInput value={name} onChangeText={setName} style={styles.input} placeholder="Ex. Alex Tromboghosy" />
-                <Text style={styles.label}>Price</Text>
+                <Text style={styles.label}>Preço (R$)</Text>
                 <TextInput value={price} onChangeText={setPrice} style={styles.input} placeholder="Ex. 14.56" />
-                <Text style={styles.label}>Quantity</Text>
+                <Text style={styles.label}>Estoque (Uni.)</Text>
                 <TextInput value={quantity} onChangeText={setQuantity} style={styles.input} placeholder="Ex. 5" />
                 <Text style={styles.label}>Status</Text>
                 <Picker selectedValue={status} style={styles.comboBox} onValueChange={(itemValue) => setStatus(itemValue)}>
                     <Picker.Item label="Ativo" value="true" />
                     <Picker.Item label="Inativo" value="false" />
                 </Picker>
-                {invalid != ""
+                {error != ""
                     ?
-                    <Text style={styles.invalid}>Verifique os campos: <Text style={styles.invalid1}>{invalid}</Text></Text>
+                    <View style={styles.alertFrame}> 
+                        <MaterialCommunityIcons name="alert-circle" size={24} color="red" />
+                        <Text style={styles.alertText}>{error}</Text>
+                    </View>
                     :
                     <Text />
                 }
             </View>
             <TouchableOpacity onPress={() => { editProduct(id, name, price, quantity, status) }} style={styles.saveFrame}>
-                <Text style={styles.saveButton}>Save</Text>
+                <Text style={styles.saveButton}>Alterar</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => { deleteProduct(id) }} style={styles.deleteFrame}>
-                <Text style={styles.deleteButton}>Delete</Text>
+                <Text style={styles.deleteButton}>Deletar</Text>
             </TouchableOpacity>
         </View>
     )

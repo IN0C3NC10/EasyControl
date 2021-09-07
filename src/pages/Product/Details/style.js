@@ -73,27 +73,39 @@ const styles = StyleSheet.create({
         marginLeft: "auto",
         borderBottomWidth: 1,
     },
+    // ..mensagem de erro
+    alertFrame:{
+        marginTop:20,
+        flexDirection:"row",
+        justifyContent:"center",
+        alignItems:"center",
+    },
+    alertText:{
+        paddingLeft:10,
+        color:subdark,
+        fontSize:16,
+    },
     // ..texto caso esteja invalido
-    invalid:{
-        width:"90%",
-        marginTop:15,
-        justifyContent:"center",
-        // ..ambas centralizam o componente
-        marginRight:"auto",
-        marginLeft:"auto",
-        fontSize:14,
-        color: "#404040",
-    },
-    invalid1:{
-        width:"90%",
-        marginTop:15,
-        justifyContent:"center",
-        // ..ambas centralizam o componente
-        marginRight:"auto",
-        marginLeft:"auto",
-        fontSize:14,
-        color: "red",
-    },
+    // invalid:{
+    //     width:"90%",
+    //     marginTop:15,
+    //     justifyContent:"center",
+    //     // ..ambas centralizam o componente
+    //     marginRight:"auto",
+    //     marginLeft:"auto",
+    //     fontSize:14,
+    //     color: "#404040",
+    // },
+    // invalid1:{
+    //     width:"90%",
+    //     marginTop:15,
+    //     justifyContent:"center",
+    //     // ..ambas centralizam o componente
+    //     marginRight:"auto",
+    //     marginLeft:"auto",
+    //     fontSize:14,
+    //     color: "red",
+    // },
     //..background do botão salvar
     saveFrame: {
         position: "absolute",

@@ -46,7 +46,7 @@ export default function List({ navigation, route }) {
                     PRODUTOS
                 </Text>
                 <Text style={styles.textLogout} onPress={() => logout()}>
-                    Logout <FontAwesome name="sign-out" size={18} color="white" />
+                    Sair <FontAwesome name="sign-out" size={18} color="white" />
                 </Text>
             </View>
             {message != null
