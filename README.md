@@ -1,3 +1,4 @@
+<h1 align="center" id="title">EASY CONTROL</h1>
 <!-- Logo -->
 <p align="center">
   <img height="400" alt="easy-control-logo" title="EasyControl - Tudo na palma da sua mão" src="./assets/Screenshots/logo.png" />
