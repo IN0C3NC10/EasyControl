@@ -28,7 +28,7 @@
   <img height="400" alt="screenshot-edit-product" title="Edição do Produto" src="./assets/Screenshots/screen5.png" />
 </p>
 
-<!-- Features -->
+<!-- Tecnologias -->
 <h2 align="left" id="tecnologias">Tecnologias</h2>
 
 As seguintes ferramentas foram usadas na construção do projeto:
