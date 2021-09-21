@@ -4,8 +4,8 @@
 </p>
 
 <!-- Título&Descrição -->
-<h2 align="left" id="screenshots">Descrição</h2>
-<p align="center">Esta é uma aplicação mobile bem simples, desenvolvida com fins de estudo e aprendizado, realiza o cadastro de um novo usuário como também seu login para acesso ao sistema, dentro dele é possível listar, cadastrar, alterar e apagar um produto pertencente ao atual usuário além disto, o sisteminha conta com o loggout para desvincular o usuário até um futuro acesso.</p>
+<h2 align="left" id="descricao">Descrição</h2>
+<p align="justify">Esta é uma aplicação mobile bem simples, desenvolvida com fins de estudo e aprendizado, realiza o cadastro de um novo usuário como também seu login para acesso ao sistema, dentro dele é possível listar, cadastrar, alterar e apagar um produto pertencente ao atual usuário além disto, o sisteminha conta com o loggout para desvincular o usuário até um futuro acesso.</p>
 
 <!-- Shield -->
 <p>
