@@ -13,8 +13,8 @@
 	<img src="https://img.shields.io/badge/Made%20with-React Native-00599C?style=for-the-badge&logo=react" title="Feito com React Native" alt="made-with-react-native"></img>
     <img src="https://img.shields.io/badge/Used-Firebase-ffbf00?style=for-the-badge&logo=firebase" title="Utilizado o Firebase" alt="used-firebase"></img>
 	<img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" title="Licença MIT" alt="license-MIT"></img>
-    <!--<img src="https://img.shields.io/badge/Status-Done-blue?style=for-the-badge" title="Status do Projeto:Concluído" alt="project-status-done"></img>-->
-    <img src="https://img.shields.io/badge/Status-Working-F08705?style=for-the-badge" title="Status do Projeto: Trabalhando" alt="project-status-working"></img>
+    <!--<img src="https://img.shields.io/badge/Status-Working-F08705?style=for-the-badge" title="Status do Projeto: Trabalhando" alt="project-status-working"></img>-->
+    <img src="https://img.shields.io/badge/Status-Done-blue?style=for-the-badge" title="Status do Projeto: Concluído" alt="Status do Projeto: Concluído"></img>
 </p>
 
 <!-- Screenshots -->
